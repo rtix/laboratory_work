@@ -17,6 +17,4 @@ def get_vacancy():
         res['salary']=i.find(text=re.compile(r'от \d{1,9}.*'))
         res['url']=url1+i.find('div',{'class':'vacancyItem-name'}).find('a')['href']
         vacancy.append(res)
-        #РАдиф, все хорошо,не волнуйся.пше
     return vacancy
-print(get_vacancy())
