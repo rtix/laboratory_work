@@ -36,4 +36,4 @@ def search(word):
 
 if __name__=='__main__':
     # main()
-    search("Php")   
+    search("программисТ")   
