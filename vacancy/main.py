@@ -26,14 +26,14 @@ def search(word):
     kfu_res=compare(kfu,word)
     inno_res=compare(inno,word)
     
-    print("Казанский (Приволжский) федеральный университет")
+    print("\nКазанский (Приволжский) федеральный университет")
     for i, k in enumerate(kfu_res, 1): 
         print(str(i)+'.', k['title'], k['salary'], k['url'], sep='\n')
 
-    print("Университет Иннополис")
+    print("\nУниверситет Иннополис")
     for i,k in enumerate(inno_res,1):
         print(str(i)+'.',k['title'], k['salary'], k['url'], sep='\n')
 
 if __name__=='__main__':
     # main()
-    search("php")
+    search("Php")   
