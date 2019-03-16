@@ -22,16 +22,13 @@ def __func(url, arr):
     vacancies_ = soup.find_all("div", {"class": "vacancy-serp-item"})
     for vacancy in vacancies_:
         vac = {}
-        needed_info = vacancy.find_all("div", {"class": "vacancy-serp-item__row"})
-        needed_info = needed_info[0]
+        needed_info = vacancy.find_all("div", {"class": "vacancy-serp-item__row"})[0]
         name_url = needed_info.find("a", {"class": "bloko-link HH-LinkModifier"})
-        vac["url"] = name_url["href"]
+        vac["url"] = name_url["href"].split("?query=")[1]
         vac["title"] = name_url.text
         try:
             vac["salary"] = needed_info.find("div", {"class": "vacancy-serp-item__compensation"}).text.replace(u"\xa0", '')
         except AttributeError:
-            vac["salary"] = "Не указано"
-        if vac["salary"] == "Не указано":
             vac["salary"] = ""
         arr.append(vac)
 
@@ -46,3 +43,4 @@ def get_vacancy():
     vacancies = []
     __func(url, vacancies)
     return vacancies
+
