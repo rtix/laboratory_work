@@ -15,6 +15,6 @@ def get_vacancy():
         result_item = {}
         result_item['title'] = vac.find('a').string.strip()
         result_item['salary'] = ""
-        result_item['url'] = vac_url + vac.find('a')["href"].split("-")[0] + ".html"
+        result_item['url'] = vac_url + vac.find('a')["href"].split("-")[0]
         result.append(result_item)
     return result
