@@ -31,6 +31,8 @@ def __func(url, arr):
             vac["salary"] = needed_info.find("div", {"class": "vacancy-serp-item__compensation"}).text.replace(u"\xa0", '')
         except AttributeError:
             vac["salary"] = "Не указано"
+        if vac["salary"] == "Не указано":
+            vac["salary"] = ""
         arr.append(vac)
 
     if next_page:
@@ -44,4 +46,3 @@ def get_vacancy():
     vacancies = []
     __func(url, vacancies)
     return vacancies
-

@@ -13,6 +13,8 @@ def get_all_vacancy(url):
         res={}
         res['title']=i.find('div',{'class':'vacancyItem-name'}).text
         res['salary']=i.find(text=re.compile(r'от \d{1,9}.*'))
+        if res['salary'] == 'Не указано':
+            res['salary'] = ""
         res['url']=url1+i.find('div',{'class':'vacancyItem-name'}).find('a')['href']
         vacancy.append(res)
     if(bs.find('a',title="На следующую страницу")):

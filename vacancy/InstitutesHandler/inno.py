@@ -21,7 +21,7 @@ def get_vacancy():
         result_item['salary'] = vac.find('p', 
                                         {'class':salary_class}).string.strip()
         if result_item['salary']==r'з/п не указана':
-            result_item['salary'] = None
+            result_item['salary'] = ""
         result_item['url'] = vac.find('a', {'class':url_class})["href"]
         result.append(result_item)
     return result
