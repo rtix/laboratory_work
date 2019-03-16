@@ -13,9 +13,11 @@ def compare(list,word):
 def search(word):
     kfu = ih.kfu.get_vacancy()
     inno = ih.inno.get_vacancy() 
+    hse=ih.hse.get_vacancy()
     
     result = {"Казанский (Приволжский) федеральный университет:":compare(kfu,word),
-                "Университет Иннополис:":compare(inno,word)}
+                "Университет Иннополис:":compare(inno,word),
+                "Национальный исследовательский университет «Высшая школа экономики» ":compare(hse,word)}
 
     return result
     
