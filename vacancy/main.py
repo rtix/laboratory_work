@@ -28,7 +28,10 @@ def main():
     for uni in result.items():
         print(uni[0])
         for i, k in enumerate(uni[1], 1): 
-            print(str(i)+'.', k['title'], k['salary'], k['url'], sep='\n')
+            if(k['salary']):
+                print(str(i)+'.', k['title'], k['salary'], k['url'], sep='\n')
+            else:
+                print(str(i)+'.', k['title'], k['url'], sep='\n')
         print('\n')
 
 
