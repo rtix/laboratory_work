@@ -3,6 +3,7 @@
 # {'title':str, 'salary':str, 'url':str}
 
 import requests
+import re
 
 from bs4 import BeautifulSoup
 
@@ -24,7 +25,7 @@ def __func(url, arr):
         vac = {}
         needed_info = vacancy.find_all("div", {"class": "vacancy-serp-item__row"})[0]
         name_url = needed_info.find("a", {"class": "bloko-link HH-LinkModifier"})
-        vac["url"] = name_url["href"].split("?query=")[0].replace("kazan.", "")
+        vac["url"] = re.sub(r'//(\w+\.)', '//', name_url["href"].split("?query=")[0])
         vac["title"] = name_url.text
         try:
             vac["salary"] = needed_info.find("div", {"class": "vacancy-serp-item__compensation"}).text.replace(u"\xa0", '')
